@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Video Wall Calculator</title>
+    <link rel="icon" type="image/png" href="/icon-32x32.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+      <img src="icon-512x512.png" alt="led-toolbox logo" class="center">
+        <h1>LED Toolbox | Wall Calculator</h1>
+        <form id="videoWallForm">
+          
+            <button type="button" onclick="setPreset(500, 500)">500x500mm</button>
+            <button type="button" onclick="setPreset(500, 1000)">500x1000mm</button>
+
+            <label for="panelWidth">Panel Width (mm):</label>
+            <input type="number" id="panelWidth" name="panelWidth" required>
+
+            <label for="panelHeight">Panel Height (mm):</label>
+            <input type="number" id="panelHeight" name="panelHeight" required>
+
+            <label for="panelsHorizontally">Panels Horizontally:</label>
+            <input type="number" id="panelsHorizontally" name="panelsHorizontally" required>
+
+            <label for="panelsVertically">Panels Vertically:</label>
+            <input type="number" id="panelsVertically" name="panelsVertically" required>
+
+            <calcbutton type="calcbutton" onclick="calculateVideoWall()">Calculate</calcbutton>
+        </form>
+        <div id="result">
+          <br>
+            <h2>Results:</h2>
+            <p id="dimensionsMm"></p>
+            <p id="dimensionsIn"></p>
+            <p id="dimensionsFt"></p>
+            <p id="aspectRatio"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(error) {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+        });
+      }
+    </script>
+</body>
+</html>
