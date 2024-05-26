@@ -6,9 +6,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: stretch;
-    height: 100vh;
-   /* background-image: url('background.jpeg');*/
+    align-items: center;
 }
 
 .container {
