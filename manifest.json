@@ -1,6 +1,6 @@
 {
     "name": "LED Toolbox | Wall Calculator",
-    "short_name": "VideoWallCalc",
+    "short_name": "LED Toolbox",
     "description": "Calculate the aspect ratio and size of a modular video wall.",
     "start_url": ".",
     "display": "standalone",
