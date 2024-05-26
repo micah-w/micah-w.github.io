@@ -18,27 +18,42 @@
             <button type="button" onclick="setPreset(500, 500)">500x500mm</button>
             <button type="button" onclick="setPreset(500, 1000)">500x1000mm</button>
 
-            <label for="panelWidth">Panel Width (mm):</label>
+            <label for="panelWidth">Panel Width (mm): *</label>
             <input type="number" id="panelWidth" name="panelWidth" required>
 
-            <label for="panelHeight">Panel Height (mm):</label>
+            <label for="panelHeight">Panel Height (mm): *</label>
             <input type="number" id="panelHeight" name="panelHeight" required>
 
-            <label for="panelsHorizontally">Panels Horizontally:</label>
+            <label for="panelsHorizontally">Panels Horizontally: *</label>
             <input type="number" id="panelsHorizontally" name="panelsHorizontally" required>
 
-            <label for="panelsVertically">Panels Vertically:</label>
+            <label for="panelsVertically">Panels Vertically: *</label>
             <input type="number" id="panelsVertically" name="panelsVertically" required>
+
+            <br>
+
+            <label for="avgWatt">Average Panel Wattage:</label>
+            <input type="number" id="avgWatt" name="avgWatt">
+
+            <label for="maxWatt">Maximum Panel Wattage:</label>
+            <input type="number" id="maxWatt" name="maxWatt">
 
             <calcbutton type="calcbutton" onclick="calculateVideoWall()">Calculate</calcbutton>
         </form>
         <div id="result">
           <br>
             <h2>Results:</h2>
-            <p id="dimensionsMm"></p>
+            <p id="dimensionsM"></p>
             <p id="dimensionsIn"></p>
             <p id="dimensionsFt"></p>
             <p id="aspectRatio"></p>
+            <br>
+            <p id="numPanels"></p>
+            <br>
+            <p id="avgCurrent120"></p>
+            <p id="avgCurrent240"></p>
+            <p id="maxCurrent120"></p>
+            <p id="maxCurrent240"></p>
         </div>
     </div>
     <script src="script.js"></script>
