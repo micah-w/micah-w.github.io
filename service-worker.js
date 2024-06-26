@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wall-calculator-cache-v1.1';
+const CACHE_NAME = 'wall-calculator-cache-v1.11';
 const urlsToCache = [
   '/',
   '/index.html',
