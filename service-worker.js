@@ -1,4 +1,4 @@
-const CACHE_NAME = 'video-wall-calculator-cache-v1';
+const CACHE_NAME = 'wall-calculator-cache-v1.1';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -6,7 +6,8 @@ const urlsToCache = [
   '/script.js',
   '/manifest.json',
   '/icon-192x192.png',
-  '/icon-512x512.png'
+  '/icon-512x512.png',
+  '/lrud.png'
 ];
 
 self.addEventListener('install', event => {

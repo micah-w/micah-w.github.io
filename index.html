@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LED Toolbox | Wall Calculator</title>
+    <title>Toolbox | Wall Calculator</title>
     <link rel="icon" type="image/png" href="/icon-32x32.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
@@ -12,7 +12,7 @@
 <body>
     <div class="container">
       <img src="icon-512x512.png" alt="led-toolbox logo" class="center">
-        <h1>LED Toolbox | Wall Calculator</h1>
+        <h1>Toolbox | LED Wall Calculator</h1>
         <form id="videoWallForm">
             <button type="button" onclick="setPreset(500, 500)">500x500mm</button>
             <button type="button" onclick="setPreset(500, 1000)">500x1000mm</button>
@@ -29,7 +29,16 @@
             <label for="panelsVertically">Panels Vertically: *</label>
             <input type="number" id="panelsVertically" name="panelsVertically" required>
 
-            <br>
+            <label for="panelRemove" id="numCutoutLabel" style="display:none">Cut Panels from Count:</label>
+            <input type="number" id="numCutout" name="numCutout" style="display:none">
+
+            <br><br>
+
+            <label for="pixWide">Panel Pixel Width:</label>
+            <input type="number" id="pixWide" name="avgWatt">
+
+            <label for="pixHigh">Panel Pixels Height:</label>
+            <input type="number" id="pixHigh" name="maxWatt">
 
             <label for="avgWatt">Average Panel Wattage:</label>
             <input type="number" id="avgWatt" name="avgWatt">
@@ -38,14 +47,41 @@
             <input type="number" id="maxWatt" name="maxWatt">
 
             <calcbutton type="calcbutton" onclick="calculateVideoWall()">Calculate</calcbutton>
+
+            <!-- A button to open the preferences form -->
+            <button type="button" onclick="openForm()">Preferences</button>
+
         </form>
+
+        
         <div id="result">
           <br>
             <h2>Results:</h2>
-            <p id="dimensionsM"></p>
-            <p id="dimensionsIn"></p>
-            <p id="dimensionsFt"></p>
+            
+            <div class="radio-inputs">
+              <label class="radio">
+                <input type="radio" name="disp_unit" id="M" checked="" onclick="calculateVideoWall()">
+                <span class="name">M</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="disp_unit" id="In" onclick="calculateVideoWall()">
+                <span class="name">In</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="disp_unit" id="Ft" onclick="calculateVideoWall()">
+                <span class="name">Ft</span>
+              </label>
+            </div>
+
+            <br>
+            
+            <img src="LRUD.png" alt="led-toolbox logo" class="lrud">
+
+            <div class="left-right"><p id="dimensionsX"></p></div>
+            <div class="up-down"><p id="dimensionsY"></p></div>
+
             <p id="aspectRatio"></p>
+            <p id="resolution"></p>
             <br>
             <p id="numPanels"></p>
             <br>
@@ -54,6 +90,18 @@
             <p id="maxCurrent120"></p>
             <p id="maxCurrent240"></p>
         </div>
+
+        <div class="form-popup" id="preferences">
+          <form class="form-container">
+            <h1>Preferences</h1>
+        
+            <label for="email"><b>Display Settings</b></label>
+            <label><input type="checkbox" id="cutoutCheck" onclick="toggleCutout()"> Show Cutout Option</label><br>
+        
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+
     </div>
     <script src="script.js"></script>
     <script>
